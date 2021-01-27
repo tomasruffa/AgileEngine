@@ -8,4 +8,4 @@ Run `npm install` to install all dependencies from proyect
 
 ## Open proyect 
 
-Run `ng serve -o` to open proyect
+Run `ng serve -o` to open project
