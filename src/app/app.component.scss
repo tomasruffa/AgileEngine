@@ -1,0 +1,54 @@
+@import './global/mixin';
+
+.landing {
+  height: calc(100% - 64px);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint('medium') {
+    padding: 20px;
+  }
+
+  @include breakpoint('large') {
+    padding: 30px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+  
+    @include breakpoint('medium') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @include breakpoint('large') {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__paginator {
+    align-self: flex-end;
+    width: 100%;
+  }
+
+  &__spinner {
+    align-self: center;
+  }
+
+  &__card {
+    width: 300px;
+    margin: auto;
+    transform: scale(1);
+    transition: all .3s;
+    padding-bottom: 0;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+}
