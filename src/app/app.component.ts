@@ -23,12 +23,7 @@ export class AppComponent {
   haveCards: boolean = false
   
 	public ngOnInit() {
-    console.log('llego')
     this.getTokenAndPhoto(null, null);
-    // this.photosService.getPhotos().subscribe((res) => {
-    //   console.log(res)
-    // });
-    // TODO GET PHOTOSERVICES
   }
 
   //gets the token and photos when the app is mounted or when called from paginator if token is invalid or getphotos returns an error.
@@ -36,11 +31,9 @@ export class AppComponent {
     this.haveCards = false
     this.authService.getToken().pipe(
       concatMap((token) => {
-        console.log(token);
         return this.photosService.getPhotos(page, id);
       })
     ).subscribe((result) => {
-      console.log(result);
       if(result.pictures) {
         this.cards = result;
         this.haveCards = true
